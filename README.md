@@ -8,7 +8,8 @@ It’s supposed to be just for me, so I just converts to BRL. If you guys feel y
 
 ## Live version
 
-Here's a live version of it [gcj.io/btc/]
+[Here's a live version of it](gcj.io/btc/)
+
 
 ## Build Setup
 
