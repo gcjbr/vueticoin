@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="md-layout-item">        
+    <div>        
         <span>Your</span> <input v-model="btc" type="text" /> <span>BTC
         are worth 
         <select v-model="currency">
@@ -11,7 +11,11 @@
         </select>
         <span class="converted">{{result}}</span></span>
     </div>
-    
+    <div class="credit">
+      <p>Made with ❤️ by <a href="http://gcj.io/">GCJ</a> </p>
+      <p>Data from <a href="https://www.coindesk.com/">Coindesk's</a> and <a href="https://www.mercadobitcoin.com.br/">Mercado Bitcoin's</a> apis</p>
+      <p> 🍺 If you like it and want to buy me a beer, here's my bitcoin address <strong>18vxL859Nvi3C3FaMdWSKKB6vpzcC88GrR</strong> :)</p>
+    </div>
   </div>
 </template>
 
@@ -104,6 +108,11 @@ body {
 
 .converted {
   color: #443ffa;
+}
+
+.credit {
+  font-size: 1rem;
+  margin-top: 120px;
 }
 
 </style>
