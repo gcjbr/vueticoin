@@ -1,8 +1,8 @@
 <template>
   <div class="md-layout main">
-    <div class="md-layout-item">
-      Seus <input v-model="btc" type="text" placeholder="Quantos BTC você tem" /> BTC
-      equivalem a R$ {{brl}}
+    <div class="md-layout-item">        
+        <span class="md-display-2">Seus</span> <input v-model="btc" type="text" placeholder="Quantos BTC você tem" /> <span class="md-display-2">BTC
+        equivalem a <span class="converted">{{brl}}</span></span>
     </div>
     
   </div>
@@ -11,6 +11,7 @@
 <script>
 
 import api from '@/api';
+import accounting from 'accounting';
 
 export default {
   data() {
@@ -23,7 +24,10 @@ export default {
     btc(val) {
       api.value().then((res) => {
         this.$localStorage.set('btc', this.btc);
-        this.brl = this.btc.replace(",", ".") * res.data.ticker.sell;
+        let newval = this.btc.replace(",", ".") * res.data.ticker.sell;
+        newval = accounting.formatMoney(newval,'R$', 2, ".", ",");
+        this.brl = newval;
+
       }).catch(function (error) {
         console.log(error);
       });
@@ -41,13 +45,16 @@ export default {
   max-width: 1200px;
   margin:auto;
   text-align: center;
-  font-size: 3rem;
-  line-height: 3rem;
+  
 }
 
 .md-layout.main input {
   font-size: 2rem;  
   padding: 10px;
+}
+
+.converted {
+  color: #443ffa;
 }
 
 </style>
