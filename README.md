@@ -4,7 +4,7 @@ I spent a few hours looking for a website which immediately gave me a conversion
 
 All the big apps are too much of a overkill, so I made this quick little app.
 
-It’s supposed to be just for me, so I just converts to BRL. If you guys feel you could use it, I might make it convert in other currencies. Just drop me a line.
+It’s supposed to be just for me, so I very simple and converts only BTC to BRL/USD/EURO. If you guys feel you could use it and want more features, just drop me a line.
 
 ## Live version
 
