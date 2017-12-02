@@ -2,7 +2,7 @@
   <div class="md-layout main">
     <div class="md-layout-item">
       Seus <input v-model="btc" type="text" placeholder="Quantos BTC você tem" /> BTC
-      equivalem a R${{brl}}
+      equivalem a R$ {{brl}}
     </div>
     
   </div>
@@ -22,11 +22,15 @@ export default {
   watch: {
     btc(val) {
       api.value().then((res) => {
+        this.$localStorage.set('btc', this.btc);
         this.brl = this.btc.replace(",", ".") * res.data.ticker.sell;
       }).catch(function (error) {
         console.log(error);
       });
     },
+  },
+  mounted() {
+    this.btc = this.$localStorage.get('btc');
   },
 };
 </script>
