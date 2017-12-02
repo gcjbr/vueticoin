@@ -1,15 +1,17 @@
 import axios from 'axios';
 
-const host = 'https://www.mercadobitcoin.net/api';
-const endpoints = {
-  value: 'BTC/ticker/',
+const hosts = {
+  BRL: 'https://www.mercadobitcoin.net/api/BTC/ticker/',
+  USD: 'https://api.coindesk.com/v1/bpi/currentprice.json',
+  EURO: 'https://api.coindesk.com/v1/bpi/currentprice.json',
+
 };
 
-
-const api = axios.create({
-  baseURL: host,
-});
+const api = axios.create();
 
 export default {
-  value: () => api.get(endpoints.value),
+  BRL: () => api.get(hosts.BRL),
+  USD: () => api.get(hosts.USD),
+  EURO: () => api.get(hosts.EURO),
+
 };
